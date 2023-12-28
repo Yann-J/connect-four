@@ -103,7 +103,7 @@ def check_winner(game):
 
 
 if __name__ == "__main__":
-    print(f"Welcome to Connect {WIN_SEQUENCE_LENGTH}!")
+    print(f"Welcome to Connect-{WIN_SEQUENCE_LENGTH}!")
 
     # Board is a list of columns, each column is a stack of colours played
     game_state = {
