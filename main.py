@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+import sys
 from rich import print
 
-import sys
 
 # Constants
 BOARD_SIZE = (7, 6)  # (width, height)
@@ -102,7 +102,7 @@ def check_winner(game):
     return None
 
 
-if __name__ == "__main__":
+def main():
     print(f"Welcome to Connect-{WIN_SEQUENCE_LENGTH}!")
 
     # Board is a list of columns, each column is a stack of colours played
@@ -117,7 +117,6 @@ if __name__ == "__main__":
 
     while True:
         player = PLAYERS[game_state["current_player"]]
-        board = game_state["board"]
 
         print(f"{player['name']}'s turn: [{player['colour']}]{player['symbol']}")
         valid_move = False
@@ -139,4 +138,9 @@ if __name__ == "__main__":
                 print("It's a draw! 🤝")
             else:
                 print(f"{PLAYERS[winner]['name']} wins! 🏆")
-            sys.exit()
+            return winner
+
+
+if __name__ == "__main__":
+    winner = main()
+    sys.exit(winner + 1)
